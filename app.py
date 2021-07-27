@@ -8,12 +8,12 @@ app=Flask(__name__)
 
 mail = Mail(app)
 
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = "gptshourya01@gmail.com"
-app.config['MAIL_PASSWORD'] = "gpt2002shourya"
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
+#app.config['MAIL_SERVER']='smtp.gmail.com'
+#app.config['MAIL_PORT'] = 200
+#app.config['MAIL_USERNAME'] = "gptshourya01@gmail.com"
+#app.config['MAIL_PASSWORD'] = "gpt2002shourya"
+#app.config['MAIL_USE_TLS'] = False
+#app.config['MAIL_USE_SSL'] = True
 
 
 
@@ -30,7 +30,7 @@ class Todo1(db.Model):
     name = db.Column(db.String(200), nullable = False)
     email = db.Column(db.String(600), nullable = False)
     message = db.Column(db.String(1600), nullable = False)
-    date_created = db.Column(db.DateTime, default = datetime.now())
+    date_created = db.Column(db.DateTime, default = datetime.utcnow)
 
     # it is only use for export
     def _repr_(self) -> str:
