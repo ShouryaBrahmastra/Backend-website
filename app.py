@@ -1,4 +1,4 @@
-from flask import Flask,redirect,url_for,render_template,request
+from flask import Flask,redirect,render_template,request
 from flask_mail import Mail,Message
 
 from flask_sqlalchemy import SQLAlchemy
@@ -9,7 +9,7 @@ app=Flask(__name__)
 mail = Mail(app)
 
 app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT'] = 200
+app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = "gptshourya01@gmail.com"
 app.config['MAIL_PASSWORD'] = "gpt2002shourya"
 app.config['MAIL_USE_TLS'] = False
@@ -17,7 +17,12 @@ app.config['MAIL_USE_SSL'] = True
 
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo1.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://QVc9ZwoEAb:yxtn9pgVUJ@remotemysql.com/QVc9ZwoEAb'
+# DATABSE_URI= 'mysql+mysqlconnector://{QVc9ZwoEAb}:{yxtn9pgVUJ}@{remotemysql.com}/{QVc9ZwoEAb}'.format(user='QVc9ZwoEAb', password='yxtn9pgVUJ', server='remotemysql.com', database='QVc9ZwoEAb')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo1.db'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -27,7 +32,7 @@ class Todo1(db.Model):
     name = db.Column(db.String(200), nullable = False)
     email = db.Column(db.String(600), nullable = False)
     message = db.Column(db.String(1600), nullable = False)
-    date_created = db.Column(db.DateTime, default = datetime.utcnow)
+    date_created = db.Column(db.DateTime, default = datetime.now())
 
     # it is only use for export
     def _repr_(self) -> str:
@@ -57,6 +62,8 @@ def contact():
         todo1 = Todo1(name = name, email = email, message = message)
         db.session.add(todo1)
         db.session.commit()
+       # todo1 = Todo1.query.all()
+       # print(todo1)
 
         msg = Message('Hello!!! I will surely reach you as soon as possible',sender = "gptshourya01@gmail.com",recipients=[email])
         msg.body = "Hello buddy glad that you took some precious time out of your busy schedule and filled up this form. I will surely contact you and we will build a great journey ahead of us together."
