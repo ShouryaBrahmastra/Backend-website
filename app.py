@@ -1,12 +1,12 @@
 from flask import Flask,redirect,render_template,request
-from flask_mail import Mail,Message
+#from flask_mail import Mail,Message
 #from flask_mysqldb import MySQL
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app=Flask(__name__)
 
-mail = Mail(app)
+#mail = Mail(app)
 
 #app.config['MAIL_SERVER']='smtp.gmail.com'
 #app.config['MAIL_PORT'] = 469
@@ -63,8 +63,8 @@ def contact():
        # todo1 = Todo1.query.all()
        # print(todo1)
 
-        msg = Message('Hello!!! I will surely reach you as soon as possible',sender = "gptshourya01@gmail.com",recipients=[email])
-        msg.body = "Hello buddy glad that you took some precious time out of your busy schedule and filled up this form. I will surely contact you and we will build a great journey ahead of us together."
+       # msg = Message('Hello!!! I will surely reach you as soon as possible',sender = "gptshourya01@gmail.com",recipients=[email])
+       # msg.body = "Hello buddy glad that you took some precious time out of your busy schedule and filled up this form. I will surely contact you and we will build a great journey ahead of us together."
         #mail.send(msg)
         return render_template('thank.html')
     return render_template('contactus.html')
