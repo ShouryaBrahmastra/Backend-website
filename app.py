@@ -20,9 +20,7 @@ app.config['MAIL_USE_SSL'] = True
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://QVc9ZwoEAb:yxtn9pgVUJ@remotemysql.com/QVc9ZwoEAb'
 # DATABSE_URI= 'mysql+mysqlconnector://{QVc9ZwoEAb}:{yxtn9pgVUJ}@{remotemysql.com}/{QVc9ZwoEAb}'.format(user='QVc9ZwoEAb', password='yxtn9pgVUJ', server='remotemysql.com', database='QVc9ZwoEAb')
  app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo1.db'
-
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
-
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
