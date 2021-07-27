@@ -1,6 +1,6 @@
 from flask import Flask,redirect,render_template,request
 from flask_mail import Mail,Message
-
+#from flask_mysqldb import MySQL
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -9,7 +9,7 @@ app=Flask(__name__)
 mail = Mail(app)
 
 #app.config['MAIL_SERVER']='smtp.gmail.com'
-#app.config['MAIL_PORT'] = 200
+#app.config['MAIL_PORT'] = 469
 #app.config['MAIL_USERNAME'] = "gptshourya01@gmail.com"
 #app.config['MAIL_PASSWORD'] = ""
 #app.config['MAIL_USE_TLS'] = False
@@ -17,7 +17,7 @@ mail = Mail(app)
 
 
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://QVc9ZwoEAb:yxtn9pgVUJ@remotemysql.com/QVc9ZwoEAb'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://QVc9ZwoEAb:yxtn9pgVUJ@remotemysql.com/QVc9ZwoEAb'
 # DATABSE_URI= 'mysql+mysqlconnector://{QVc9ZwoEAb}:{yxtn9pgVUJ}@{remotemysql.com}/{QVc9ZwoEAb}'.format(user='QVc9ZwoEAb', password='yxtn9pgVUJ', server='remotemysql.com', database='QVc9ZwoEAb')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo1.db'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
@@ -73,6 +73,10 @@ def contact():
 @app.route('/hobbies')
 def hobbies():
     return render_template('hobbies1.html')
+
+@app.route('/achieve')
+def achieve():
+    return render_template('achieve.html')
 
 @app.route('/google')
 def google():

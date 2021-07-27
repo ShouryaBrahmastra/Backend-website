@@ -26,6 +26,8 @@ body {
 }
 
 .text-box h1 {
+    padding-top: 100px;
+    font-weight: 700;
     font-size: 62px;
 }
 
