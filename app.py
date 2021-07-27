@@ -11,7 +11,7 @@ mail = Mail(app)
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = "gptshourya01@gmail.com"
-app.config['MAIL_PASSWORD'] = "gpt2002shourya"
+app.config['MAIL_PASSWORD'] = ""
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
