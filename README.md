@@ -34,3 +34,8 @@ If >> symbol is not shown download python and enable the environment option duri
 ###### python .\app.py
 and the port will be active again.
 ##### To view the database entries visit https://inloop.github.io/sqlite-viewer/ , drag and drop "todo2" file and there you can view all the entries.
+
+---
+
+## Deployment
+To view the deployment of my original portfolio website that is inspired from this basic structure [Click Here](https://shouryaportfolio.herokuapp.com/)
